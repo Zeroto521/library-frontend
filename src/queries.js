@@ -10,4 +10,16 @@ const ALL_AUTHORS = gql`
     }
   }
 `
-export { ALL_AUTHORS }
+
+const ALL_BOOKS = gql`
+  query {
+    allBooks  {
+      id
+      title
+      published
+      author
+    }
+  }
+`
+
+export { ALL_AUTHORS, ALL_BOOKS }
