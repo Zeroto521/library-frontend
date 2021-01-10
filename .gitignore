@@ -23,5 +23,8 @@ yarn-debug.log*
 yarn-error.log*
 
 # vscode
-.history
 .vscode
+
+# cacahe
+.history
+.eslintcache
