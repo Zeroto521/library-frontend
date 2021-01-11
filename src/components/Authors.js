@@ -2,6 +2,7 @@ import { useQuery } from '@apollo/client'
 import React from 'react'
 
 import { ALL_AUTHORS } from '../queries'
+import EditBornyear from './EditBornyear'
 
 const Author = ({ author }) => (
   <tr>
@@ -12,7 +13,28 @@ const Author = ({ author }) => (
 )
 
 
-const Authors = ({ show }) => {
+const Authors = ({ authors }) => (
+  <div>
+    <h2>authors</h2>
+    <table>
+      <tbody>
+        <tr>
+          <th></th>
+          <th>born</th>
+          <th>books</th>
+        </tr>
+        {
+          authors.map(author =>
+            <Author key={author.id} author={author} />
+          )
+        }
+      </tbody>
+    </table>
+  </div>
+)
+
+
+const AuthorView = ({ show }) => {
   const result = useQuery(ALL_AUTHORS)
 
   if (!show) {
@@ -27,23 +49,10 @@ const Authors = ({ show }) => {
 
   return (
     <div>
-      <h2>authors</h2>
-      <table>
-        <tbody>
-          <tr>
-            <th></th>
-            <th>born</th>
-            <th>books</th>
-          </tr>
-          {
-            authors.map(author =>
-              <Author key={author.id} author={author} />
-            )
-          }
-        </tbody>
-      </table>
+      <Authors authors={authors} />
+      <EditBornyear authors={authors} />
     </div>
   )
 }
 
-export default Authors
+export default AuthorView
