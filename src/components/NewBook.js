@@ -4,7 +4,7 @@ import React, { useState } from 'react'
 import { ADD_BOOK, ALL_AUTHORS, ALL_BOOKS } from '../queries'
 import { useField } from '../hooks.js'
 
-const NewBook = ({ show }) => {
+const NewBook = ({ show, notifyWith }) => {
   const title = useField('text')
   const author = useField('text')
   const published = useField('number')
@@ -12,7 +12,10 @@ const NewBook = ({ show }) => {
   const [genres, setGenres] = useState([])
 
   const [addBook] = useMutation(ADD_BOOK, {
-    refetchQueries: [{ query: ALL_BOOKS }, { query: ALL_AUTHORS }]
+    refetchQueries: [{ query: ALL_BOOKS }, { query: ALL_AUTHORS }],
+    onError: (error) => {
+      notifyWith(error.message)
+    }
   })
 
   if (!show) {

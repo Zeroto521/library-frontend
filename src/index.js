@@ -4,6 +4,8 @@ import ReactDOM from 'react-dom'
 
 import App from './App'
 
+import './css/index.css'
+
 const client = new ApolloClient({
   cache: new InMemoryCache(),
   link: new HttpLink({

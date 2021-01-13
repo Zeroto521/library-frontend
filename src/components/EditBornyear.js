@@ -5,13 +5,16 @@ import Select from "react-select"
 import { EDIT_AUTHOR, ALL_AUTHORS } from '../queries'
 import { useField } from '../hooks'
 
-function EditBornyear({ authors }) {
+function EditBornyear({ authors, notifyWith }) {
   const born = useField('number')
   const [selectedOption, setSelectedOption] = useState(null)
   const options = authors.map(a => { return { 'label': a.name, 'value': a.id } })
 
   const [editAuthor] = useMutation(EDIT_AUTHOR, {
-    refetchQueries: [{ query: ALL_AUTHORS }]
+    refetchQueries: [{ query: ALL_AUTHORS }],
+    onError: (error) => {
+      notifyWith(error.message)
+    }
   })
 
   function submit(event) {
