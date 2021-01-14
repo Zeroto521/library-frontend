@@ -18,15 +18,15 @@ const App = () => {
   const [page, setPage] = useState('authors')
   const [notification, setNotification] = useState(null)
 
-  const notifyWith = (message) => {
-    setNotification(message)
-    setTimeout(() => { setNotification(null) }, 3000)
+  const notifyWith = (message, type = "success", timer = 3000) => {
+    setNotification({ message, type })
+    setTimeout(() => { setNotification(null) }, timer)
   }
 
   return (
     <div>
       <Header setPage={setPage} />
-      <Notification message={notification} />
+      <Notification notification={notification} />
       <Authors show={page === 'authors'} notifyWith={notifyWith} />
       <Books show={page === 'books'} />
       <NewBook show={page === 'add'} notifyWith={notifyWith} />

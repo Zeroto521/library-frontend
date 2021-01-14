@@ -13,7 +13,7 @@ function EditBornyear({ authors, notifyWith }) {
   const [editAuthor] = useMutation(EDIT_AUTHOR, {
     refetchQueries: [{ query: ALL_AUTHORS }],
     onError: (error) => {
-      notifyWith(error.message)
+      notifyWith(error.message, 'error')
     }
   })
 
@@ -26,6 +26,8 @@ function EditBornyear({ authors, notifyWith }) {
         born: Number(born.value)
       }
     })
+
+    notifyWith(`The born of ${selectedOption.label} is edited to ${born.value}`)
   }
 
   return (

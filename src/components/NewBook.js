@@ -14,7 +14,7 @@ const NewBook = ({ show, notifyWith }) => {
   const [addBook] = useMutation(ADD_BOOK, {
     refetchQueries: [{ query: ALL_BOOKS }, { query: ALL_AUTHORS }],
     onError: (error) => {
-      notifyWith(error.message)
+      notifyWith(error.message, 'error')
     }
   })
 
@@ -33,6 +33,8 @@ const NewBook = ({ show, notifyWith }) => {
         genres
       }
     })
+
+    notifyWith(`A new book ${title.value} written by ${author.value}`)
 
     title.reset()
     author.reset()
