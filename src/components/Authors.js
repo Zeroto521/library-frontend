@@ -34,12 +34,8 @@ const Authors = ({ authors }) => (
 )
 
 
-const AuthorView = ({ show, notifyWith }) => {
+const AuthorView = ({ token, notifyWith }) => {
   const result = useQuery(ALL_AUTHORS)
-
-  if (!show) {
-    return null
-  }
 
   if (result.loading) {
     return <div>loading...</div>
@@ -50,7 +46,10 @@ const AuthorView = ({ show, notifyWith }) => {
   return (
     <div>
       <Authors authors={authors} />
-      <EditBornyear authors={authors} notifyWith={notifyWith} />
+      {
+        token &&
+        <EditBornyear authors={authors} notifyWith={notifyWith} />
+      }
     </div>
   )
 }

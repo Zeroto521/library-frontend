@@ -4,7 +4,7 @@ import React, { useState } from 'react'
 import { ADD_BOOK, ALL_AUTHORS, ALL_BOOKS } from '../queries'
 import { useField } from '../hooks.js'
 
-const NewBook = ({ show, notifyWith }) => {
+const NewBook = ({ notifyWith }) => {
   const title = useField('text')
   const author = useField('text')
   const published = useField('number')
@@ -17,10 +17,6 @@ const NewBook = ({ show, notifyWith }) => {
       notifyWith(error.message, 'error')
     }
   })
-
-  if (!show) {
-    return null
-  }
 
   const submit = (event) => {
     event.preventDefault()

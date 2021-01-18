@@ -11,12 +11,8 @@ const Book = ({ book }) => (
   </tr>
 )
 
-const Books = ({ show }) => {
+const Books = () => {
   const result = useQuery(ALL_BOOKS)
-
-  if (!show) {
-    return null
-  }
 
   if (result.loading) {
     return <div>loading...</div>
