@@ -4,10 +4,10 @@ import { Switch, Route } from "react-router-dom"
 import { useApolloClient } from '@apollo/client'
 import React, { useState, useEffect } from 'react'
 
-import Authors from './components/Authors'
-import Books from './components/Books'
+import Authors from './components/Authors/Authors'
+import Books from './components/Books/Books'
 import LoginForm from './components/LoginForm'
-import NewBook from './components/NewBook'
+import NewBook from './components/Books/NewBook'
 import Notification from "./components/Notification"
 
 const Header = ({ logout, token }) => {

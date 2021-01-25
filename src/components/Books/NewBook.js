@@ -1,8 +1,8 @@
 import { useMutation } from '@apollo/client'
 import React, { useState } from 'react'
 
-import { ADD_BOOK, ALL_AUTHORS, ALL_BOOKS } from '../queries'
-import { useField } from '../hooks.js'
+import { ADD_BOOK, ALL_AUTHORS, ALL_BOOKS } from '../../queries'
+import { useField } from '../../hooks.js'
 
 const NewBook = ({ notifyWith }) => {
   const title = useField('text')

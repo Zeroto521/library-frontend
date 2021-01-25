@@ -1,8 +1,8 @@
 import { useQuery } from '@apollo/client'
 import React from 'react'
 
-import { ALL_AUTHORS } from '../queries'
-import EditBornyear from './EditBornyear'
+import { ALL_AUTHORS } from '../../queries'
+import EditBornYear from './EditBornYear'
 
 const Author = ({ author }) => (
   <tr>
@@ -48,7 +48,7 @@ const AuthorView = ({ token, notifyWith }) => {
       <Authors authors={authors} />
       {
         token &&
-        <EditBornyear authors={authors} notifyWith={notifyWith} />
+        <EditBornYear authors={authors} notifyWith={notifyWith} />
       }
     </div>
   )

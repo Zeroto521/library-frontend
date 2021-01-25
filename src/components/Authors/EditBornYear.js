@@ -2,10 +2,10 @@ import { useMutation } from '@apollo/client'
 import React, { useState } from "react"
 import Select from "react-select"
 
-import { EDIT_AUTHOR, ALL_AUTHORS } from '../queries'
-import { useField } from '../hooks'
+import { EDIT_AUTHOR, ALL_AUTHORS } from '../../queries'
+import { useField } from '../../hooks'
 
-function EditBornyear({ authors, notifyWith }) {
+function EditBornYear({ authors, notifyWith }) {
   const born = useField('number')
   const [selectedOption, setSelectedOption] = useState(null)
   const options = authors.map(a => { return { 'label': a.name, 'value': a.id } })
@@ -42,4 +42,4 @@ function EditBornyear({ authors, notifyWith }) {
   )
 }
 
-export default EditBornyear 
+export default EditBornYear 
