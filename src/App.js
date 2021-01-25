@@ -9,6 +9,7 @@ import Books from './components/Books/Books'
 import LoginForm from './components/LoginForm'
 import NewBook from './components/Books/NewBook'
 import Notification from "./components/Notification"
+import Recommend from './components/Authors/Recommend'
 
 const Header = ({ logout, token }) => {
   return (
@@ -22,6 +23,10 @@ const Header = ({ logout, token }) => {
       {
         token &&
         <Link to="newbook"><button>add book</button></Link>
+      }
+      {
+        token &&
+        <Link to="recommend"><button>recommend</button></Link>
       }
       {
         token &&
@@ -70,6 +75,9 @@ const App = () => {
         </Route>
         <Route path="/newbook">
           <NewBook notifyWith={notifyWith} />
+        </Route>
+        <Route path="/recommend">
+          <Recommend token={token} />
         </Route>
         <Route path="/">
           <Authors token={token} notifyWith={notifyWith} />

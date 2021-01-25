@@ -2,15 +2,8 @@ import { useQuery } from '@apollo/client'
 import React, { useState } from 'react'
 
 import { ALL_BOOKS } from '../../queries'
+import Book from './Book'
 import FilterByGenre from './FilterByGenre'
-
-const Book = ({ book }) => (
-  <tr>
-    <td>{book.title}</td>
-    <td>{book.author.name}</td>
-    <td>{book.published}</td>
-  </tr>
-)
 
 const Books = () => {
   const result = useQuery(ALL_BOOKS)

@@ -25,6 +25,16 @@ const ALL_BOOKS = gql`
   }
 `
 
+const CURRENT_USER = gql`
+  query {
+    me {
+      username
+      favoriteGenre
+      id
+    }
+  }
+`
+
 const ADD_BOOK = gql`
   mutation addBook($title: String!, $author: String!, $published: Int! , $genres: [String!]!) {
     addBook(
@@ -63,4 +73,11 @@ const LOGIN = gql`
   }
 `
 
-export { ALL_AUTHORS, ALL_BOOKS, ADD_BOOK, EDIT_AUTHOR, LOGIN }
+export {
+  ALL_AUTHORS,
+  ALL_BOOKS,
+  ADD_BOOK,
+  EDIT_AUTHOR,
+  LOGIN,
+  CURRENT_USER
+}
