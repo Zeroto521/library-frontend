@@ -1,10 +1,10 @@
 import React from 'react'
 
-const FilterByGenre = ({ genres, setFilterGenre }) => (
+const FilterByGenre = ({ genres, onClick }) => (
   <div>
     {
       genres.map(genre =>
-        <button key={genre} onClick={() => setFilterGenre(genre)}>{genre}</button>
+        <button key={genre} onClick={() => onClick(genre)}>{genre}</button>
       )
     }
   </div>

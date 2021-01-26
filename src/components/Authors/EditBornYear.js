@@ -32,7 +32,7 @@ function EditBornYear({ authors, notifyWith }) {
 
   return (
     <div>
-      <h2>Set birthyear</h2>
+      <h3>Set birthyear</h3>
       <form onSubmit={submit}>
         <Select onChange={setSelectedOption} options={options} />
         <div>born <input {...born.form} /></div>
