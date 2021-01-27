@@ -73,11 +73,26 @@ const LOGIN = gql`
   }
 `
 
+const BOOK_ADDED = gql`
+  subscription {
+    bookAdded {
+      id
+      title
+      published
+      genres
+      author {
+        name
+      }
+    }
+  }
+`
+
 export {
   ALL_AUTHORS,
   ALL_BOOKS,
   ADD_BOOK,
   EDIT_AUTHOR,
   LOGIN,
-  CURRENT_USER
+  CURRENT_USER,
+  BOOK_ADDED
 }
